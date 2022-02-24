@@ -31,8 +31,6 @@ nav a {
     margin:0 10px;
 }
 .text-accueil {
-    /* font-size: 5rem; */
-    /* color: #DBEDF3; */
     font-size: 50px;
     font-family: "Arvo", cursive;
     text-shadow: 3px 0 #DA0463;
@@ -105,7 +103,6 @@ nav a {
 .title-best-movie {
     font-family: "Arvo", cursive;
     text-shadow: 3px 0 #DA0463;
-    /* background: pink; */
     height: 50%;
     padding: 5px 10px;
 }
@@ -114,11 +111,8 @@ nav a {
     min-height: 150px;
     max-height: 200px;
     margin: 10px;
-    padding: 10px;
 }
 .cover-best-movie img {
-    border: solid 2px red;
-    border-radius: 30px;
     height: 100%;
     max-width: 100%;
     background: rebeccapurple;
