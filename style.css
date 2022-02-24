@@ -1,0 +1,58 @@
+/* Init */
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    text-align: center;
+    background-color: hsl(224, 29%, 22%);
+}
+
+/* Nav Bar */
+.navbar {
+    background-color: hsl(224, 29%, 17%);
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    text-align: center;
+}
+.logo-bobine {
+    width: 70px;
+    filter: drop-shadow(3px 0 #DA0463);}
+svg {
+  }
+nav a {
+    color: #f1f1f1;
+    text-decoration: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin:0 10px;
+}
+.text-accueil {
+    /* font-size: 5rem; */
+    color: #DBEDF3;
+    font-size: 50px;
+    font-family: "Arvo", cursive;
+    text-shadow: 3px 0 #DA0463;
+
+}
+.navbar .logo-link {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+
+}
+.container-namelinks {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.nav-right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
