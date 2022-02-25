@@ -27,6 +27,9 @@ function getInfoBestMovie(category) {
     
             const bestImg = document.querySelector(".cover-best-movie img");
             bestImg.src = bestData.image_url;
+
+            const bestButton = document.querySelector(".best-button")
+            bestButton.setAttribute("id", `${bestData.id}`);
         })
     })
 }

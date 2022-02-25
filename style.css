@@ -34,6 +34,7 @@ nav a {
     font-size: 50px;
     font-family: "Arvo", cursive;
     text-shadow: 3px 0 #DA0463;
+    color: rgb(232, 232, 240);
 }
 .navbar .logo-link {
     width: 100%;
