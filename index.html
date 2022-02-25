@@ -23,10 +23,10 @@
           </div>
   
           <div class="nav-right">
-            <a href="#" class="nav-link">Best Movies</a>
-            <a href="#" class="nav-link">Horror</a>
-            <a href="#" class="nav-link">Animation</a>
-            <a href="#" class="nav-link">Thriller</a>
+            <a href="#best-movies" class="nav-link">Best Movies</a>
+            <a href="#best-horrors" class="nav-link">Horror</a>
+            <a href="#best-animations" class="nav-link">Animation</a>
+            <a href="#best-musicals" class="nav-link">Musical</a>
           </div>
     </nav>
 
@@ -54,9 +54,91 @@
         </div>
     </section>
         
-    <footer>
+    <!-- Carousels -->
+    <footer class="carousels">
 
+        <div id="best-movies" class="carousel-container bests-carousel-container">
+            <h3>BEST MOVIES</h3>
+            <div class="inner-carousel">
+                <div class="track bests-track">
+                </div>
+                <div class="carousel-nav">
+                    <button class="prev bests-prev"><i class="fas fa-arrow-left fa-2x"></i></button>
+                    <button class="next bests-next"><i class="fas fa-arrow-right fa-2x"></i></button>
+                </div>
+            </div>
+        </div>
+    
+        <div id="best-horrors" class="carousel-container horrors-carousel-container">
+            <h3>HORROR</h3>
+            <div class="inner-carousel">
+                <div class="track horrors-track">
+                </div>
+                <div class="carousel-nav">
+                    <button class="prev horrors-prev"><i class="fas fa-arrow-left fa-2x"></i></button>
+                    <button class="next horrors-next"><i class="fas fa-arrow-right fa-2x"></i></button>
+                </div>
+            </div>
+        </div>
+    
+        <div id="best-animations" class="carousel-container animations-carousel-container">
+            <h3>ANIMATION</h3>
+            <div class="inner-carousel">
+                <div class="track animations-track">
+                </div>
+                <div class="carousel-nav">
+                    <button class="prev animations-prev"><i class="fas fa-arrow-left fa-2x"></i></button>
+                    <button class="next animations-next"><i class="fas fa-arrow-right fa-2x"></i></button>
+                </div>
+            </div>
+        </div>
+    
+        <div id="best-musicals" class="carousel-container musicals-carousel-container">
+            <h3>MUSICAL</h3>
+            <div class="inner-carousel">
+                <div class="track musicals-track">
+                </div>
+                <div class="carousel-nav">
+                    <button class="prev musicals-prev"><i class="fas fa-arrow-left fa-2x"></i></button>
+                    <button class="next musicals-next"><i class="fas fa-arrow-right fa-2x"></i></button>
+                </div>
+            </div>
+        </div>
+        
     </footer>
+
+    <!-- Modal section -->
+    <div class="modal-container">
+        <div class="overlay modal-trigger"></div>
+        <div class="modal">
+            <button aria-label="close modal" class="close-modal modal-trigger">X</button>
+            
+            <div class="img-title">
+                <img id="modalImg" src="" alt="Movie poster">
+                <div class="modalHead">
+                    <h2 id="modalTitle">Titre du film</h2>
+
+                    <div class="modalDetails">
+                        <div class="modalHeadersDetails1">
+                            <p id="modalDirectors"></p>
+                            <p id="modalCountries"></p>
+                        </div>
+                        <div class="modalHeadersDetails2">
+                            <p id="modalRated"></p>
+                            <p id="modalReleaseDate"></p>
+                            <p id="modalDuration"></p>
+                            <p id="modalWorldwideGrossIncome"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p id="modalActors" class="modal-actors"></p>
+
+            <p id="modalResume">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nam tempore itaque ratione nostrum aliquid.</p>
+        </div>
+    </div>
+
     
     <script src="script.js"></script>
 </body>

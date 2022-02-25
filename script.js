@@ -1,9 +1,14 @@
+const numberMovies = 7;
+
 const ENDPOINT_URL = "http://localhost:8000/api/v1/titles/";
-const BEST_MOVIES = "?sort_by=-votes&page_size=7";
+const BEST_MOVIES = [`?sort_by=-votes&page_size=${numberMovies}`, "bests"];
+const BEST_HORROR = [`?&sort_by=-votes&page_size=${numberMovies}&genre=horror`, "horrors"];
+const BEST_ANIMATION = [`?&sort_by=-votes&page_size=${numberMovies}&genre=animation`, "animations"];
+const BEST_MUSICAL = [`?&sort_by=-votes&page_size=${numberMovies}&genre=musical`, "musicals"];
 
 // generate best movie info 
 function getInfoBestMovie(category) {
-    fetch(`${ENDPOINT_URL}${category}`)
+    fetch(`${ENDPOINT_URL}${category[0]}`)
     .then(response => response.json())
     .then(moviesData => {
         // console.log(moviesData.results[0]);
@@ -13,7 +18,7 @@ function getInfoBestMovie(category) {
         fetch(bestUrl)
         .then(responseBest => responseBest.json())
         .then(bestData => {
-            console.log(bestData);
+            // console.log(bestData);
             const bestTitle = document.querySelector(".title-best-h2");
             bestTitle.innerText = bestData.original_title;
     
@@ -28,77 +33,141 @@ function getInfoBestMovie(category) {
 getInfoBestMovie(BEST_MOVIES);
 
 
+// Create Carousels
+function createCarouselCards(categories) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-// let best_movies_list = [];
-
-
-// function fetchBestMoviesCategory(url_category) {
-//     fetch(`${ENDPOINT_URL}${url_category}`)
-//         .then(response => response.json())
-//         .then(moviesData => {
-//             // console.log(moviesData);
-//             moviesData.results.forEach(movie => {
-//                 fetchMoviesData(movie)
-//             })
-//         })
-// }
-
-// function fetchMoviesData(movie) {
-//     let objectMovieFull = {};
-//     let url = movie.url;
-
-//     fetch(url)
-//         .then(response => response.json())
-//         .then(movieData => {
-//             // console.log(movieData);
-
-//             objectMovieFull.imgUrl = movieData.image_url;
-//             objectMovieFull.titleMovie = movieData.original_title;
-//             objectMovieFull.genres = movieData.genres;
-//             objectMovieFull.releaseDate = movieData.date_published;
-//             objectMovieFull.rated = movieData.rated;
-//             objectMovieFull.imdbScore = movieData.imdb_score;
-//             objectMovieFull.directors = movieData.directors;
-//             objectMovieFull.actors = movieData.actors;
-//             objectMovieFull.duration = movieData.duration;
-//             objectMovieFull.countries = movieData.countries;
-//             objectMovieFull.worldwideGrossIncome = movieData.worldwide_gross_income;
-//             objectMovieFull.description = movieData.long_description;
-
+    const bestTrack = document.querySelector(`.${categories[1]}-track`);
+    fetch(`${ENDPOINT_URL}${categories[0]}`)
+    .then(response => response.json())
+    .then(moviesData => {
+        results = moviesData.results;
+        // console.log(results);
+        let indice = 1
+        results.forEach(element => {
+            // console.log(element);
+    
+            const cardContainer = document.createElement("div");
+            cardContainer.classList.add("card-container");
+            const card = document.createElement("div");
+            card.classList.add("card");
+            card.classList.add(`${categories[1]}-card${indice}`);
             
-//             best_movies_list.push(objectMovieFull)
-//             // console.log(best_movies_list);
+            // Add classes for modal
+            card.classList.add("modal-btn");
+            card.classList.add("modal-trigger");
 
-//             return best_movies_list;
-//         })
-// }
+            card.setAttribute("id", `${element.id}`);
+            card.style.backgroundImage = 'url("' + element.image_url + '")';
+    
+            cardContainer.appendChild(card);
+            bestTrack.appendChild(cardContainer);
+    
+            indice ++
+    
+        });
+    })
+}
+
+function createCarousel(categories) {
+    createCarouselCards(categories);
+
+    const prev = document.querySelector(`.${categories[1]}-prev`);
+    const next = document.querySelector(`.${categories[1]}-next`);
+    const carousel = document.querySelector(`.${categories[1]}-carousel-container`);
+    const track = document.querySelector(`.${categories[1]}-track`);
+
+    let width = carousel.offsetWidth;
+    let index = 0;
+
+    window.addEventListener("resize", function () {
+      width = carousel.offsetWidth;
+    });
+    
+    next.addEventListener("click", function (e) {
+      e.preventDefault();
+      index = index + 1;
+      prev.classList.add("show");
+      track.style.transform = "translateX(" + index * -width + "px)";
+      if (track.offsetWidth - index * width < index * width) {
+        next.classList.add("hide");
+      }
+    });
+    prev.addEventListener("click", function () {
+      index = index - 1;
+      next.classList.remove("hide");
+      if (index === 0) {
+        prev.classList.remove("show");
+      }
+      track.style.transform = "translateX(" + index * -width + "px)";
+    });
+}
+
+let bestCarousel = createCarousel(BEST_MOVIES);
+let horrorCarousel = createCarousel(BEST_HORROR);
+let animationCarousel = createCarousel(BEST_ANIMATION);
+let musicalCarousel = createCarousel(BEST_MUSICAL);
 
 
 
+// Generate Modals
 
-// fetchBestMoviesCategory(BEST_MOVIES);
+const modalContainer = document.querySelector(".modal-container");
 
-// function getInfoUrl(url_category) {
+document.addEventListener("click", (e) => {
+  console.log(e.target);
+  console.log(e.target.className);
 
-//     let result = fetch(`${ENDPOINT_URL}${url_category}`)
-//                 .then(response => response.json())
-//                 .then(moviesData => {
-//                     console.log(moviesData.results);
-//                 })
-//     return result
-// }
+  let idMovie = e.target.id;
+  if (e.target.className.includes("modal-trigger")) {
+    console.log(`Id Movie: ${idMovie}`);
 
-// let test = getInfoUrl(BEST_MOVIES)
-// console.log(`test: ${test}`);
+    toggleModal();
+
+    console.log(`Id Movie: ${idMovie}`);
+    // alert(`click! sur ${idMovie}`);
+    fetchMovieId(idMovie);
+  }
+})
+
+function toggleModal(){
+    modalContainer.classList.toggle("active")
+}
+
+function fetchMovieId(id) {
+    fetch(`${ENDPOINT_URL}${id}`)
+    .then(response => response.json())
+    .then(movieData => {
+        console.log(movieData);
+        let title = movieData.original_title
+        console.log(title);
+        console.log(`click! sur ${id}: ${title}`);
+
+        createSingleCard(movieData)
+    })
+}
+
+function createSingleCard(data) {
+    let imgModalMovie = document.querySelector("#modalImg");
+    imgModalMovie.src = data.image_url;
+    let titleModalMovie = document.querySelector("#modalTitle");
+    titleModalMovie.innerText = data.original_title.toUpperCase();
+    let directorsModalMovie = document.querySelector("#modalDirectors");
+    directorsModalMovie.innerText = data.directors;
+    let countriesModalMovie = document.querySelector("#modalCountries");
+    countriesModalMovie.innerText = data.countries;
+    let actorsModalMovie = document.querySelector("#modalActors");
+    actorsModalMovie.innerHTML = `Actors: <br>${data.actors}`;
+    let ratedModalMovie = document.querySelector("#modalRated");
+    ratedModalMovie.innerText = `Rated: ${data.rated}`;
+    let releaseDateModalMovie = document.querySelector("#modalReleaseDate");
+    releaseDateModalMovie.innerText = `Release Date: ${data.date_published}`;
+    let durationDateModalMovie = document.querySelector("#modalDuration");
+    durationDateModalMovie.innerText = `Duration: ${data.duration} minutes`;
+    let worldwideGrossIncomeModalMovie = document.querySelector("#modalWorldwideGrossIncome");
+    worldwideGrossIncomeModalMovie.innerText = `Box office result: ${data.worldwide_gross_income} ${data.budget_currency}`;
+    let resumeModalMovie = document.querySelector("#modalResume");
+    resumeModalMovie.innerHTML = `Resume:<br>${data.long_description}`;
+}
+
+
+

@@ -117,7 +117,7 @@ nav a {
     max-width: 100%;
     background: rebeccapurple;
 }
-button {
+.best-movie-title-btn button {
     min-width: 45%;
     min-width: 55%;
     height: 30px;
@@ -130,12 +130,12 @@ button {
     box-shadow: 2px 2px 1px;
     transition: all 0.2s ease-in;
 }
-button:hover{
+.best-movie-title-btn button:hover{
     background: hsl(32, 86%, 46%);
     cursor: pointer;
     color: hsl(333, 96%, 34%);
 }
-button:active{
+.best-movie-title-btn button:active{
     box-shadow: 0px 0px 0px;
     transform: translate(3px, 3px);
 }
@@ -150,4 +150,205 @@ button:active{
 }
 
 
+/* ------------- Carousels ------------- */
+
+/* @media (max-width: 768px) {
+    .carousels {
+        width: 75%;
+    }
+} */
+
+.carousel-container {
+    background: hsl(224, 29%, 32%);
+    width: 750px;
+    margin: 50px auto;
+    position: relative;
+    border-radius: 50px;
+    border-left-width: 4px;
+    border-left-style: solid;
+    border-left-color: hsl(224, 29%, 7%);
+}
+.carousels h3 {
+    padding-top: 15px;
+    text-decoration: underline;
+    font-family: "Arvo", cursive;
+}
+/* @media (max-width: 768px) {
+    .carousel-container {
+        width: 95%;
+    }
+} */
+.inner-carousel {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+.track {
+    display: inline-flex;
+    height: 100%;
+    transition: transform 0.9s ease-in-out;
+}
+.card-container {
+    width: 275px;
+    height: 400px;
+    /* flex-shrink: 0; */
+    padding-right: 10px;
+}
+/* @media (max-width: 768px) {
+    .card-container {
+        width: 184px;
+    }
+} */
+.card {
+    width: 100%;
+    height: 100%;
+    /*display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;*/
+    background-position: center bottom;
+    background-size: 80%;
+    /* background-size: center; */
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    transition: border-bottom 0.2s ease-in-out;
+    }
+.card:hover {
+    border-bottom: 2px solid hsl(224, 29%, 7%);;
+}
+.carousel-nav button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    outline: none;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+.carousel-nav .prev {
+    left: -30px;
+    display: none;
+}
+.carousel-nav .prev.show {
+    display: block;
+}
+.carousel-nav .next {
+    right: -30px;
+}
+.carousel-nav .next.hide {
+    display: none;
+}
+
+
+/* ------------- Modal ------------- */
+
+.modal-btn {
+    cursor: pointer;
+}
+.modal-container {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: visibility 0.4s;
+}
+.modal-container.active {
+    visibility: visible;
+}
+
+.overlay {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #333333d3;
+    transition: opacity 0.4s 0.2s ease-out;
+}
+.modal-container.active .overlay {
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+}
+
+.modal {
+    opacity: 0;
+    width: 95%;
+    max-width: 800px;
+    min-width: 400px;
+    margin-top: 70px;
+    padding: 30px;
+    background: hsl(224, 29%, 22%);
+    border-radius: 15px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% - 50px));
+    transition: opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+}
+.modal-container.active .modal {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s 0.2s ease-out,
+    transform 0.4s 0.2s ease-out;
+}
+
+.close-modal {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background: #ff365e;
+    color: #fff;
+}
+
+.modal #modalImg {
+    border: 10px groove;
+}
+.modal .img-title {
+    display: flex;
+    text-align: center;
+    border-radius: 15px;
+    background: hsl(224, 29%, 12%);
+}
+.modal .modalHead {
+    /* background: red; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 15px;
+}
+
+.modal h2 {
+    margin-bottom: 10px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    text-align: center;
+}
+
+.modal-actors {
+    margin: 10px;
+    padding: 10px;
+    box-shadow: inset -5px -5px 5px hsl(224, 29%, 18%);
+}
+
+.modal p {
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+#modalResume {
+    max-height: 150px;
+    box-shadow: -5px -5px 5px hsl(224, 29%, 20%);
+    margin: 10px;
+    padding: 25px;
+    overflow: scroll;
+    background: hsl(224, 29%, 23%);
+}
 
