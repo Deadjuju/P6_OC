@@ -87,8 +87,7 @@ nav a {
 /* ------------- Best Movie Section ------------- */
 
 .best-movie-section {
-    min-width: 45%;
-    max-width: 55%;
+    max-width: 935px;
     min-height: 350px;
     margin: 50px auto;
     padding: 25px 30px;
@@ -96,6 +95,11 @@ nav a {
     border-radius: 50px;
     display: flex;
     flex-direction: column;
+}
+@media (max-width: 1000px) {
+    .best-movie-section {
+        margin: 50px 20px 20px;
+    }
 }
 .best-movie-head {
     display: flex;
@@ -161,14 +165,14 @@ nav a {
 .carousels {
     margin: auto;
 }
-@media (max-width: 880px) {
+@media (max-width: 1000px) {
     .carousels {
         margin: 15px;
     }
 }
 .carousel-container {
     background: hsl(224, 29%, 32%);
-    width: 750px;
+    width: 950px;
     margin: 50px auto;
     position: relative;
     border-radius: 50px;
@@ -181,7 +185,7 @@ nav a {
     text-decoration: underline;
     font-family: "Arvo", cursive;
 }
-@media (max-width: 880px) {
+@media (max-width: 1000px) {
     .carousel-container {
         width: 90%;
     }
@@ -202,11 +206,6 @@ nav a {
     /* flex-shrink: 0; */
     padding-right: 10px;
 }
-/* @media (max-width: 768px) {
-    .card-container {
-        width: 184px;
-    }
-} */
 .card {
     width: 100%;
     height: 100%;
