@@ -13,12 +13,17 @@ body {
 }
 
 /* ------------- Navigation ------------- */
+header {
+    margin-bottom: 130px;
+}
 .navbar {
     background-color: hsl(224, 29%, 17%);
     width: 100%;
     padding: 20px;
     display: flex;
     text-align: center;
+    position: fixed;
+    z-index: 999;
 }
 .logo-bobine {
     width: 70px;
@@ -159,6 +164,14 @@ nav a {
     }
 } */
 
+.carousels {
+    margin: auto;
+}
+@media (max-width: 880px) {
+    .carousels {
+        margin: 15px;
+    }
+}
 .carousel-container {
     background: hsl(224, 29%, 32%);
     width: 750px;
@@ -174,11 +187,11 @@ nav a {
     text-decoration: underline;
     font-family: "Arvo", cursive;
 }
-/* @media (max-width: 768px) {
+@media (max-width: 880px) {
     .carousel-container {
-        width: 95%;
+        width: 90%;
     }
-} */
+}
 .inner-carousel {
     width: 100%;
     height: 500px;
