@@ -23,7 +23,7 @@ header {
     display: flex;
     text-align: center;
     position: fixed;
-    z-index: 999;
+    z-index: 998;
 }
 .logo-bobine {
     width: 70px;
@@ -158,12 +158,6 @@ nav a {
 
 /* ------------- Carousels ------------- */
 
-/* @media (max-width: 768px) {
-    .carousels {
-        width: 75%;
-    }
-} */
-
 .carousels {
     margin: auto;
 }
@@ -268,6 +262,7 @@ nav a {
     width: 100vw;
     height: 100vh;
     transition: visibility 0.4s;
+    z-index: 999;
 }
 .modal-container.active {
     visibility: visible;
