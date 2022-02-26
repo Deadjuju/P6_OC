@@ -130,9 +130,9 @@ nav a {
     margin: auto;
     border: none;
     border-radius: 999px;
-    color: #DA0463;
+    color: #791613;
     font-size: 20px;
-    background: hsl(32, 86%, 56%);
+    background: hsl(27, 100%, 50%);
     box-shadow: 2px 2px 1px;
     transition: all 0.2s ease-in;
 }
@@ -361,3 +361,114 @@ nav a {
     background: hsl(224, 29%, 23%);
 }
 
+
+
+/* ------------- Footer ------------- */
+
+footer {
+    margin-top: 200px;
+    background: hsl(224, 29%, 10%);
+    color: whitesmoke;
+    padding-bottom: 50px;
+    font-family: "Arvo", cursive;
+}
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1100px;
+    margin: -100px auto 0;
+    padding: 0 20px;
+}
+.footer-form {
+    flex-basis: 60%;
+    background: #791613;
+    height: 350px;
+    padding: 70px;
+}
+.form-title {
+    font-size: 40px;
+    color: #F1F1F1;
+    margin-bottom: 75px;
+}
+.footer-form input {
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    font-size: 18px;
+    width: 100%;
+}
+.footer-form button {
+    padding: 10px 5px;
+    border: none;
+    width: 100%;
+    margin-top: 10px;
+    background: #1a1a1a;
+    color: #f1f1f1;
+    font-size: 18px;
+    transition: all 0.4s ease-in-out;
+
+}
+.footer-form button:hover{
+    background: #333; 
+    color: rgb(19, 121, 24);
+    cursor: pointer;
+}
+  
+.about-footer, .footer-list, .medias-footer {
+    min-height: 250px;
+}
+.about-footer {
+    width: 40%;
+    padding: 90px 40px 0;
+}
+.footer-title {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+.footer-text {
+    line-height: 1.4px;
+}
+.footer-list, .medias-footer {
+    padding: 50px 0 0;
+    width: 33%;
+}
+.footer-list ul
+{
+    margin-left: 15px;
+}
+.footer-list ul li {
+    padding: 4px 0;
+}
+.footer-list ul a {
+    text-decoration: none;
+    color: #f1f1f1;
+    transition: text-shadow 0.2s ease-in-out;
+}
+.footer-list ul a:hover {
+    text-decoration: underline;
+    text-shadow: 3px 0 #DA0463;
+}
+.medias-footer {
+    display: flex;
+}
+.medias-footer a {
+    flex-shrink: 0;
+    display: block;
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    background: #791613;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background-color 0.4s ease-in-out;
+}
+.medias-footer a:hover {
+    background: hsl(2, 73%, 42%);
+    color: rgb(204, 204, 204);
+}
+.medias-footer img {
+    width: 30px;
+}
