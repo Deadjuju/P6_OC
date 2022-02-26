@@ -201,7 +201,8 @@ nav a {
     transition: transform 0.9s ease-in-out;
 }
 .card-container {
-    width: 275px;
+    width: 295px;
+    /* width: 275px; */
     height: 400px;
     /* flex-shrink: 0; */
     padding-right: 10px;
