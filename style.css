@@ -82,6 +82,52 @@ nav a {
 .nav-right a:hover {
     text-shadow: 3px 0 #DA0463;
 }
+.nav-right li {
+    list-style-type: none; 
+    margin: 30px;
+    padding: 0px;
+}
+.dropdownmenu ul {
+    opacity: 0;
+    border-radius: 10px;
+    box-shadow: 5px 5px hsl(228, 28%, 12%);
+    background: hsl(228, 28%, 17%);
+    padding: 10px;
+    z-index: 10; 
+    position: absolute;
+    top: -50px; 
+    right: 0px;
+    transition: opacity 0.5s ease-in-out, transform 0.4s ease-in-out;
+}
+.dropdownmenu li {
+    position: relative;
+}
+.dropdownmenu a {
+    display: block;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    padding: 3px 10px;
+    text-align: center;
+}
+.dropdownmenu .sub-menu a:active {
+    background: hsl(228, 28%, 12%);
+}
+.sub-menu li a{
+    margin-bottom: 30px;
+    width: 100%;
+}
+.menu-arrow {
+    margin: 0 0 0 15px ;
+    transition: transform 0.5s ease-in-out;
+}
+.dropdownmenu:hover .menu-arrow{
+    transform: rotate(90deg);
+}
+.dropdownmenu:hover ul {
+    opacity: 1;
+    transform: translateY(100px);
+}
 
 
 /* ------------- Best Movie Section ------------- */
