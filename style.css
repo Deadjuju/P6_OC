@@ -12,7 +12,9 @@ body {
     background-color: hsl(224, 29%, 22%);
 }
 
+
 /* ------------- Navigation ------------- */
+
 header {
     margin-bottom: 130px;
 }
@@ -57,9 +59,6 @@ nav a {
     display: flex;
     justify-content: flex-end;
 }
-
-
-
 .nav-right li {
     list-style-type: none; 
     margin: 30px;
@@ -223,6 +222,23 @@ nav a {
         margin: 15px;
     }
 }
+.carousel-divider-bar {
+    border: none;
+    border-top: 3px double whitesmoke;
+    height: 1px;
+    text-align: center;
+    margin: 75px auto 135px;
+}
+.carousel-divider-bar::after {
+    color: #f5f5f5;
+    font-family: "Arvo", cursive;
+    background-color: hsl(224, 29%, 22%);
+    padding: 0 4px;
+    content: "🎬";
+    font-size: 2.5em;
+    position: relative;
+    top: -35px;
+}
 .carousel-container {
     background: hsl(224, 29%, 32%);
     width: 950px;
@@ -263,17 +279,12 @@ nav a {
 .card {
     width: 100%;
     height: 100%;
-    /*display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;*/
     background-position: center bottom;
     background-size: 80%;
-    /* background-size: center; */
     background-repeat: no-repeat;
     border-radius: 10px;
     transition: border-bottom 0.2s ease-in-out;
-    }
+}
 .card:hover {
     border-bottom: 2px solid hsl(224, 29%, 7%);;
 }
@@ -320,7 +331,6 @@ nav a {
 .modal-container.active {
     visibility: visible;
 }
-
 .overlay {
     opacity: 0;
     position: absolute;
@@ -333,7 +343,6 @@ nav a {
     opacity: 1;
     transition: opacity 0.4s ease-out;
 }
-
 .modal {
     opacity: 0;
     width: 95%;
@@ -356,7 +365,6 @@ nav a {
     transition: opacity 0.4s 0.2s ease-out,
     transform 0.4s 0.2s ease-out;
 }
-
 .close-modal {
     padding: 8px 10px;
     border: none;
@@ -368,8 +376,15 @@ nav a {
     cursor: pointer;
     background: #ff365e;
     color: #fff;
+    transition: all 0.2s ease-in;
 }
-
+.close-modal:hover {
+    background-color: #ff0537;
+    transform: scale(1.05);
+}
+.close-modal:active {
+    border-radius: 50%;
+}
 .modal #modalImg {
     border: 10px groove;
 }
@@ -380,27 +395,23 @@ nav a {
     background: hsl(224, 29%, 12%);
 }
 .modal .modalHead {
-    /* background: red; */
     width: 100%;
     display: flex;
     flex-direction: column;
     text-align: center;
     margin: 15px;
 }
-
 .modal h2 {
     margin-bottom: 10px;
     font-family: Montserrat, sans-serif;
     font-weight: 500;
     text-align: center;
 }
-
 .modal-actors {
     margin: 10px;
     padding: 10px;
     box-shadow: inset -5px -5px 5px hsl(224, 29%, 18%);
 }
-
 .modal p {
     line-height: 1.4;
     margin-bottom: 5px;
@@ -460,14 +471,12 @@ footer {
     color: #f1f1f1;
     font-size: 18px;
     transition: all 0.4s ease-in-out;
-
 }
 .footer-form button:hover{
     background: #333; 
     color: rgb(19, 121, 24);
     cursor: pointer;
 }
-  
 .about-footer, .footer-list, .medias-footer {
     min-height: 250px;
 }
