@@ -57,31 +57,9 @@ nav a {
     display: flex;
     justify-content: flex-end;
 }
-.nav-right a {
-    display: flex;
-    align-items: center;
-    position: relative;
-    transition: text-shadow 0.4s ease-in-out;
-}
-.nav-right a::before {
-    content: "";
-    position: absolute;
-    background: #DBEDF3;
-    box-shadow: 3px 3px #DA0463;;
-    width: 100%;
-    height: 3px;
-    bottom: 0;
-    transform-origin: 100% 0;
-    transform: scaleX(0);
-    transition: transform 0.4s;
-  }
-.nav-right a:hover::before {
-    transform-origin: 0 0;
-    transform: scaleX(1);
-}
-.nav-right a:hover {
-    text-shadow: 3px 0 #DA0463;
-}
+
+
+
 .nav-right li {
     list-style-type: none; 
     margin: 30px;
@@ -119,15 +97,44 @@ nav a {
 }
 .menu-arrow {
     margin: 0 0 0 15px ;
+    font-weight: bold;
+    font-size: 1.3em;
+    transform: rotate(90deg);
     transition: transform 0.5s ease-in-out;
 }
 .dropdownmenu:hover .menu-arrow{
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
 }
 .dropdownmenu:hover ul {
     opacity: 1;
     transform: translateY(100px);
 }
+.nav-right a {
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: text-shadow 0.4s ease-in-out;
+}
+.nav-right .sub-menu a::before {
+    content: "";
+    position: absolute;
+    background: #DBEDF3;
+    box-shadow: 3px 3px #DA0463;;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    transform-origin: 100% 0;
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+.nav-right .sub-menu a:hover::before {
+    transform-origin: 0 0;
+    transform: scaleX(1);
+}
+.nav-right .sub-menu a:hover {
+    text-shadow: 3px 0 #DA0463;
+}
+
 
 
 /* ------------- Best Movie Section ------------- */
