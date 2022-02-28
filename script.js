@@ -31,7 +31,13 @@ function getInfoBestMovie(category) {
             const bestButton = document.querySelector(".best-button")
             bestButton.setAttribute("id", `${bestData.id}`);
         })
+        .catch(function(error) {
+          console.log(error);
+      })
     })
+    .catch(function(error) {
+      console.log(error);
+  })
 }
 getInfoBestMovie(BEST_MOVIES);
 
@@ -117,8 +123,8 @@ let musicalCarousel = createCarousel(BEST_MUSICAL);
 const modalContainer = document.querySelector(".modal-container");
 
 document.addEventListener("click", (e) => {
-  console.log(e.target);
-  console.log(e.target.className);
+  // console.log(e.target);
+  // console.log(e.target.className);
 
   let idMovie = e.target.id;
   if (e.target.className.includes("modal-trigger")) {
@@ -126,8 +132,6 @@ document.addEventListener("click", (e) => {
 
     toggleModal();
 
-    console.log(`Id Movie: ${idMovie}`);
-    // alert(`click! sur ${idMovie}`);
     fetchMovieId(idMovie);
   }
 })
@@ -143,10 +147,12 @@ function fetchMovieId(id) {
         console.log(movieData);
         let title = movieData.original_title
         console.log(title);
-        console.log(`click! sur ${id}: ${title}`);
 
         createSingleCard(movieData)
     })
+    .catch(function(error) {
+      console.log(error);
+  })
 }
 
 function createSingleCard(data) {
