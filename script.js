@@ -32,11 +32,11 @@ function getInfoBestMovie(category) {
             bestButton.setAttribute("id", `${bestData.id}`);
         })
         .catch(function(error) {
-          console.log(error);
+          console.log(`Erreur: ${error}`);
       })
     })
     .catch(function(error) {
-      console.log(error);
+      console.log(`Erreur: ${error}`);
   })
 }
 getInfoBestMovie(BEST_MOVIES);
@@ -72,7 +72,6 @@ function createCarouselCards(categories) {
             bestTrack.appendChild(cardContainer);
     
             indice ++
-    
         });
     })
 }
@@ -111,6 +110,8 @@ function createCarousel(categories) {
     });
 }
 
+
+// Create the 4 carousels
 let bestCarousel = createCarousel(BEST_MOVIES);
 let horrorCarousel = createCarousel(BEST_HORROR);
 let animationCarousel = createCarousel(BEST_ANIMATION);
@@ -151,7 +152,7 @@ function fetchMovieId(id) {
         createSingleCard(movieData)
     })
     .catch(function(error) {
-      console.log(error);
+      console.log(`Erreur: ${error}`);
   })
 }
 
