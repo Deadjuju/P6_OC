@@ -6,7 +6,13 @@ const BEST_HORROR = [`?&sort_by=-votes&page_size=${numberMovies}&genre=horror`, 
 const BEST_ANIMATION = [`?&sort_by=-votes&page_size=${numberMovies}&genre=animation`, "animations"];
 const BEST_MUSICAL = [`?&sort_by=-votes&page_size=${numberMovies}&genre=musical`, "musicals"];
 
-// generate best movie info 
+
+// -------------------- BEST MOVIE SECTION --------------------
+
+/**
+ * Generate card for the best movie
+ * @param { String } category
+ */
 function getInfoBestMovie(category) {
     fetch(`${ENDPOINT_URL}${category[0]}`)
     .then(response => response.json())
@@ -42,7 +48,14 @@ function getInfoBestMovie(category) {
 getInfoBestMovie(BEST_MOVIES);
 
 
-// Create Carousels
+// -------------------- CAROUSEL SECTION --------------------
+
+/**
+ * Create carousel cards for each category 
+ * @param { Object[] } categories
+ * @param { String } categories[].url
+ * @param { String } categories[].name
+ */
 function createCarouselCards(categories) {
 
     const bestTrack = document.querySelector(`.${categories[1]}-track`);
@@ -76,6 +89,13 @@ function createCarouselCards(categories) {
     })
 }
 
+
+/**
+ * Create a carousel for a category
+ * @param { Object[] } categories
+ * @param { String } categories[].url
+ * @param { String } categories[].name
+ */
 function createCarousel(categories) {
     createCarouselCards(categories);
 
@@ -118,29 +138,34 @@ let animationCarousel = createCarousel(BEST_ANIMATION);
 let musicalCarousel = createCarousel(BEST_MUSICAL);
 
 
-
-// Generate Modals
+// -------------------- MODAL SECTION --------------------
 
 const modalContainer = document.querySelector(".modal-container");
 
 document.addEventListener("click", (e) => {
-  // console.log(e.target);
-  // console.log(e.target.className);
 
   let idMovie = e.target.id;
   if (e.target.className.includes("modal-trigger")) {
     console.log(`Id Movie: ${idMovie}`);
 
     toggleModal();
-
     fetchMovieId(idMovie);
   }
 })
 
+
+/**
+ * Open or close the modal
+ */
 function toggleModal(){
     modalContainer.classList.toggle("active")
 }
 
+
+/**
+ * Gets information about a movie from its identifier and generates modal 
+ * @param { String } id
+ */
 function fetchMovieId(id) {
     fetch(`${ENDPOINT_URL}${id}`)
     .then(response => response.json())
@@ -156,7 +181,13 @@ function fetchMovieId(id) {
   })
 }
 
+
+/**
+ * Displays information about a movie on the modal 
+ * @param { Object } data
+ */
 function createSingleCard(data) {
+    console.log(`DATA: ${typeof(data)}`)
     let imgModalMovie = document.querySelector("#modalImg");
     imgModalMovie.src = data.image_url;
     let titleModalMovie = document.querySelector("#modalTitle");
